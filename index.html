@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS and Mail System Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background: #555;
+            color: white;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #444;
+        }
+        pre {
+            background: #eee;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DNS and Mail System Overview</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#dns">DNS System</a></li>
+            <li><a href="#mail">Mail System</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section id="dns" class="section">
+            <h2>1.1 DNS System</h2>
+
+            <h3>1.1.1 List of Top-Level Domains</h3>
+            <ul>
+                <li>Generic TLDs (gTLDs): .com, .org, .net, .info, .biz</li>
+                <li>Sponsored TLDs (sTLDs): .edu, .gov, .mil, .aero, .museum</li>
+                <li>Country Code TLDs (ccTLDs): .us, .uk, .de</li>
+                <li>Infrastructure TLDs: .arpa</li>
+            </ul>
+
+            <h3>1.1.2 Hierarchical Structure of DNS</h3>
+            <p>The DNS is structured hierarchically into levels:</p>
+            <ul>
+                <li>Root Level: Managed by root servers and points to TLD servers.</li>
+                <li>Top-Level Domains (TLDs): Categories like .com, .org.</li>
+                <li>Second-Level Domains: Owned by individuals or organizations, e.g., example.com.</li>
+                <li>Subdomains: Divisions of second-level domains, e.g., www.example.com.</li>
+            </ul>
+            <p>DNS queries proceed through these levels to resolve domain names to IP addresses. DNS delegation assigns authority to specific name servers.</p>
+
+            <h3>1.1.3 DNS Records and Reverse DNS</h3>
+            <ul>
+                <li>A Record: Maps a domain to an IPv4 address.</li>
+                <li>AAAA Record: Maps a domain to an IPv6 address.</li>
+                <li>CNAME Record: Creates an alias for another domain.</li>
+                <li>MX Record: Specifies mail exchange servers.</li>
+                <li>TXT Record: Stores arbitrary text, often for validation.</li>
+                <li>PTR Record: Used for reverse DNS (resolving IP to a domain).</li>
+            </ul>
+
+            <h3>1.1.4 Authoritative vs Non-Authoritative Answers</h3>
+            <p><strong>Authoritative Answer:</strong> Comes directly from the server responsible for the domain.</p>
+            <p><strong>Non-Authoritative Answer:</strong> Retrieved from a DNS resolver's cache.</p>
+
+            <h3>1.1.5 DNS Resolver, DNS Cache, and /etc/hosts</h3>
+            <ul>
+                <li><strong>DNS Resolver:</strong> Resolves domain names to IP addresses.</li>
+                <li><strong>DNS Cache:</strong> Stores recent queries to speed up resolution.</li>
+                <li><strong>/etc/hosts:</strong> A file for manual domain-to-IP mappings.</li>
+            </ul>
+        </section>
+
+        <section id="mail" class="section">
+            <h2>1.2 Mail System</h2>
+
+            <h3>1.2.1 Protocols: POP3, IMAP, SMTP</h3>
+            <ul>
+                <li><strong>POP3:</strong> Downloads emails to the client and removes them from the server.</li>
+                <li><strong>IMAP:</strong> Synchronizes emails between client and server.</li>
+                <li><strong>SMTP:</strong> Sends emails using commands like HELO, MAIL FROM, and RCPT TO.</li>
+            </ul>
+
+            <h3>1.2.2 NNTP Protocol</h3>
+            <p>The Network News Transfer Protocol (NNTP) is used for reading and posting messages in newsgroups.</p>
+
+            <h3>1.2.3 Email Mailbox, Parameters, Aliases, and Address</h3>
+            <ul>
+                <li><strong>Mailbox:</strong> Stores user emails.</li>
+                <li><strong>Parameters:</strong> Includes quotas and access permissions.</li>
+                <li><strong>Aliases:</strong> Redirect alternative email addresses to the primary mailbox.</li>
+                <li><strong>Address:</strong> Format is username@domain.</li>
+            </ul>
+
+            <h3>1.2.4 Email Structure: Header and Separator</h3>
+            <p>The email structure includes a <strong>header</strong> with metadata like sender and subject, and a <strong>separator</strong> (blank line) before the body.</p>
+
+            <h3>1.2.5 Attachments, Email Coding, MIME</h3>
+            <ul>
+                <li><strong>Attachments:</strong> Files included with emails.</li>
+                <li><strong>Email Coding:</strong> Uses Base64 or Quoted-Printable for non-text content.</li>
+                <li><strong>MIME:</strong> Defines media types for attachments.</li>
+            </ul>
+
+            <h3>1.2.6 Mailing Lists and Email Gate</h3>
+            <ul>
+                <li><strong>Mailing Lists:</strong> Facilitate group communication.</li>
+                <li><strong>Email Gate:</strong> Bridges between email systems and other communication methods.</li>
+            </ul>
+
+            <h3>1.2.7 Email Security: SSL, TLS, PGP</h3>
+            <ul>
+                <li><strong>SSL/TLS:</strong> Encrypts emails during transit.</li>
+                <li><strong>PGP:</strong> Provides encryption and digital signatures.</li>
+            </ul>
+
+            <h3>1.2.8 Spam, Blacklists, and Spam Filtering</h3>
+            <ul>
+                <li><strong>Spam:</strong> Unsolicited bulk emails.</li>
+                <li><strong>Blacklists:</strong> Lists of spamming IPs.</li>
+                <li><strong>Spam Filtering:</strong> Uses algorithms to detect and block spam.</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
